@@ -477,7 +477,7 @@ withAutoCompleteString:(NSString *)string
         [self.autoCompleteDelegate autoCompleteTextField:self
                             willHideAutoCompleteTableView:self.autoCompleteTableView];
     }
-    [self.autoCompleteTableView removeFromSuperview];
+    [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self restoreOriginalShadowProperties];
     if ([self.autoCompleteDelegate respondsToSelector:@selector(autoCompleteTextField:didHideAutoCompleteTableView:)]) {
         [self.autoCompleteDelegate autoCompleteTextField:self
